@@ -24,3 +24,66 @@ int main() {
 
     const char* jenisKendaraan;
     int tarifAwal, tarifLanjut;
+
+switch (jenis) {
+        case 10:
+            jenisKendaraan = "Mobil Pribadi";
+            tarifAwal = 5000; tarifLanjut = 3000;
+            break;
+        case 20:
+            jenisKendaraan = "Motor";
+            tarifAwal = 3000; tarifLanjut = 2000;
+            break;
+        case 30:
+            jenisKendaraan = "Bus";
+            tarifAwal = 10000; tarifLanjut = 7000;
+            break;
+        default:
+            printf("Kode jenis kendaraan tidak valid.\n");
+            return 0;
+    }
+
+    int durasiMenit = hhmmToMinutes(waktuKeluar) - hhmmToMinutes(waktuMasuk);
+    if (durasiMenit <= 0) {
+        printf("Waktu keluar tidak boleh sebelum waktu masuk.\n");
+        return 0;
+    }
+
+    int durasiJam = menitToJamBulat(durasiMenit);
+    int totalBiaya = tarifAwal + (durasiJam > 1 ? (durasiJam - 1) * tarifLanjut : 0);
+
+    printf("\nParkir\n");
+    printf("Jenis Kendaraan : %s\n", jenisKendaraan);
+    printf("Waktu Masuk     : %02d:%02d\n", waktuMasuk / 100, waktuMasuk % 100);
+    printf("Waktu Keluar    : %02d:%02d\n", waktuKeluar / 100, waktuKeluar % 100);
+    printf("Durasi Parkir   : %d jam\n", durasiJam);
+    printf("Nomor Lokasi    : %04d\n", lokasi);
+    printf("Total Biaya     : Rp %d\n", totalBiaya);
+
+    return 0;
+}
+
+/*Algoritma Parkir Digital
+1. Input
+Kode parkir (10 digit)
+Waktu keluar (HHMM)
+
+2. Ambil data dari kode parkir
+2 digit pertama → jenis kendaraan (10, 20, 30)
+4 digit berikutnya → waktu masuk (HHMM)
+4 digit terakhir → nomor lokasi
+
+3. Tentukan tarif berdasarkan jenis kendaraan:
+Mobil: 5000 + 3000/jam berikutnya
+Motor: 3000 + 2000/jam berikutnya
+Bus: 10000 + 7000/jam berikutnya
+
+4. Hitung durasi parkir
+Ubah waktu masuk & keluar ke menit
+Hitung selisihnya → ubah ke jam (dibulatkan ke atas)
+Hitung biaya parkir:
+Jika hanya 1 jam → bayar tarif awal
+Jika lebih → tarif awal + tarif lanjutan × (jam - 1)
+
+5. Tampilkan hasil
+Jenis kendaraan, jam masuk, jam keluar, durasi, lokasi, total biaya*/
