@@ -30,3 +30,27 @@ int main() {
             jumlah_kemenanganB++;
             jumlah_kemenanganA = 0;
 
+if (jumlah_kemenanganB == 3) {
+                poinB += 2; // bonus
+                jumlah_kemenanganB = 0; 
+            }
+        } else if (hasil == 'C') {
+            poinA += 1;
+            poinB += 1;
+            jumlah_kemenanganA = 0;
+            jumlah_kemenanganB = 0;
+        }
+    }
+
+    cout << "Poin A: " << poinA << endl;
+    cout << "Poin B: " << poinB << endl;
+
+    if (poinA > poinB) {
+        cout << "Pemenangnya adalah pemain A" << endl;
+    } else if (poinB > poinA) {
+        cout << "Pemenangnya adalah pemain B" << endl;
+    } else {
+        cout << "Pertandingan berakhir seri" << endl;
+    }
+
+}
