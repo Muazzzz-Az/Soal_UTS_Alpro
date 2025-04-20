@@ -1,3 +1,36 @@
 #include <iostream>
-
 using namespace std;
+
+string getTipeKartu(const string& kartu) {
+    if (kartu.length() == 14 && kartu.rfind("65", 0) == 0) return "NUSANTARA";
+    if (kartu.length() == 16 && (kartu.rfind("77", 0) == 0 || kartu.rfind("78", 0) == 0)) return "GARUDA";
+    if (kartu.length() == 15 && kartu.rfind("91", 0) == 0) return "MERDEKA";
+    return "TIDAK DIKETAHUI";
+}
+
+bool validasiNusantara(const string& nomor) {
+    int total = 0;
+
+   
+    for (int i = nomor.length() - 2; i >= 0; i -= 2) {
+        int digit = (nomor[i] - '0') * 2;
+        if (digit > 9) digit = digit / 10 + digit % 10;
+        total += digit;
+    }
+
+    
+    for (int i = nomor.length() - 1; i >= 0; i -= 2) {
+        total += (nomor[i] - '0');
+    }
+
+    
+    return (total % 10 == 0);
+}
+
+bool validasiGaruda(const string& nomor) {
+    return validasiNusantara(nomor); 
+}
+
+bool validasiMerdeka(const string& nomor) {
+    return validasiNusantara(nomor); 
+}
