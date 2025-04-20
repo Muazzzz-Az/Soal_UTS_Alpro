@@ -1,1 +1,36 @@
-//Kerjakan soal nomor 4 disini (Hapus komentar ini)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Masukkan jumlah pertandingan: ";
+    cin >> N;
+
+    string hasil_pertandingan;
+    cout << "Masukkan hasil pertandingan : ";
+    cin >> hasil_pertandingan;
+
+    int poinA = 0, poinB = 0;
+    int jumlah_kemenanganA = 0, jumlah_kemenanganB = 0;
+
+    for (int i = 0; i < N; ++i) {
+        char hasil = hasil_pertandingan[i];
+
+        if (hasil == 'A') {
+            poinA += 3;
+            jumlah_kemenanganA++;
+            jumlah_kemenanganB = 0;
+
+            if (jumlah_kemenanganA == 3) {
+                poinA += 2; 
+                jumlah_kemenanganA = 0; 
+            }
+        } else if (hasil == 'B') {
+            poinB += 3;
+            jumlah_kemenanganB++;
+            jumlah_kemenanganA = 0;
+
+            if (jumlah_kemenanganB == 3) {
+                poinB += 2; // bonus
+                jumlah_kemenanganB = 0; 
+            }
