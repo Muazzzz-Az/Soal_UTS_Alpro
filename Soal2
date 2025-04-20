@@ -1,1 +1,26 @@
-//Kerjakan soal nomor 2 disini (Hapus komentar ini)
+#include <stdio.h>
+
+int hhmmToMinutes(int hhmm) {
+    return (hhmm / 100) * 60 + (hhmm % 100);
+}
+
+int menitToJamBulat(int menit) {
+    return (menit + 59) / 60;
+}
+
+int main() {
+    long long kodeParkir;
+    int waktuKeluar;
+
+    printf("Masukkan kode parkir (10 digit): ");
+    scanf("%lld", &kodeParkir);
+
+    printf("Masukkan waktu keluar (HHMM): ");
+    scanf("%d", &waktuKeluar);
+
+    int jenis = kodeParkir / 100000000;
+    int waktuMasuk = (kodeParkir / 10000) % 10000;
+    int lokasi = kodeParkir % 10000;
+
+    const char* jenisKendaraan;
+    int tarifAwal, tarifLanjut;
