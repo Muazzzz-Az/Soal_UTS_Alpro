@@ -23,3 +23,40 @@ int main() {
 
     string jenisHari, jenisPelanggan;
     int poinPerUnit = 0;
+if (kodeHari == "01") {
+        jenisHari = "Hari kerja";
+        if (kodePelanggan == "01") { jenisPelanggan = "Biasa"; poinPerUnit = 1; }
+        else if (kodePelanggan == "02") { jenisPelanggan = "Member Silver"; poinPerUnit = 2; }
+        else if (kodePelanggan == "03") { jenisPelanggan = "Member Gold"; poinPerUnit = 3; }
+        else { cout << "Kode pelanggan tidak valid.\n"; return 0; }
+    }
+    else if (kodeHari == "02") {
+        jenisHari = "Akhir pekan";
+        if (kodePelanggan == "01") { jenisPelanggan = "Biasa"; poinPerUnit = 2; }
+        else if (kodePelanggan == "02") { jenisPelanggan = "Member Silver"; poinPerUnit = 3; }
+        else if (kodePelanggan == "03") { jenisPelanggan = "Member Gold"; poinPerUnit = 5; }
+        else { cout << "Kode pelanggan tidak valid.\n"; return 0; }
+    }
+    else if (kodeHari == "03") {
+        jenisHari = "Hari libur nasional";
+        if (kodePelanggan == "01") { jenisPelanggan = "Biasa"; poinPerUnit = 3; }
+        else if (kodePelanggan == "02") { jenisPelanggan = "Member Silver"; poinPerUnit = 5; }
+        else if (kodePelanggan == "03") { jenisPelanggan = "Member Gold"; poinPerUnit = 7; }
+        else { cout << "Kode pelanggan tidak valid.\n"; return 0; }
+    }
+    else {
+        cout << "Kode hari tidak valid.\n";
+        return 0;
+    }
+
+    int totalPoin = belanja * poinPerUnit; 
+
+    cout << "\nRingkasan Transaksi\n";
+    cout << "Jenis Hari       : " << jenisHari << endl;
+    cout << "Jenis Pelanggan  : " << jenisPelanggan << endl;
+    cout << "Jumlah Belanja   : Rp " << jumlahBelanja << endl;
+    cout << "Total Poin       : " << totalPoin << " poin\n";
+
+    return 0;
+}
+
