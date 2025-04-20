@@ -54,3 +54,31 @@ if (jumlah_kemenanganB == 3) {
     }
 
 }
+/Algoritma Ringkas Perhitungan Poin Pertandingan*  
+
+1. *Input*  
+   - Masukkan jumlah pertandingan (N) dan hasil pertandingan (string A, B, atau C).  
+
+2. *Inisialisasi*  
+   - poinA = 0, poinB = 0  
+   - menangA = 0, menangB = 0 (untuk hitung kemenangan beruntun)  
+
+3. *Proses Setiap Pertandingan*  
+   - **Jika A**:  
+     - poinA += 3, menangA++, menangB = 0  
+     - Jika menangA == 3: poinA += 2, menangA = 0  
+   - **Jika B**:  
+     - poinB += 3, menangB++, menangA = 0  
+     - Jika menangB == 3: poinB += 2, menangB = 0  
+   - **Jika C**:  
+     - poinA += 1, poinB += 1  
+     - menangA = 0, menangB = 0  
+
+4. *Tentukan Pemenang*  
+   - Bandingkan poinA dan poinB:  
+     - A menang jika poinA > poinB  
+     - B menang jika poinB > poinA  
+     - Seri jika sama  
+
+5. *Output*  
+   - Cetak total poin A dan B, lalu pemenang/seri.  */
