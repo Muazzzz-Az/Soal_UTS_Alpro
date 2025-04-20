@@ -34,3 +34,40 @@ bool validasiGaruda(const string& nomor) {
 bool validasiMerdeka(const string& nomor) {
     return validasiNusantara(nomor); 
 }
+
+int main() {
+    string nomorKartu;
+    cout << "Masukkan nomor kartu digital: ";
+    cin >> nomorKartu;
+
+    string tipe = getTipeKartu(nomorKartu);
+    if (tipe == "TIDAK DIKETAHUI") {
+        cout << "Nomor kartu tidak sesuai dengan jenis kartu digital." << endl;
+        return 0;
+    }
+
+    cout << "Tipe kartu: " << tipe << endl;
+
+    if (tipe == "NUSANTARA") {
+        if (validasiNusantara(nomorKartu)) {
+            cout << "Nomor kartu VALID" << endl;
+        } else {
+            cout << "Nomor kartu TIDAK VALID" << endl;
+        }
+    } 
+    else if (tipe == "GARUDA") {
+        if (validasiGaruda(nomorKartu)) {
+            cout << "Nomor Kartu VALID" << endl;
+        } else {
+            cout << "Nomor Kartu TIDAK VALID." << endl;
+        }
+    } 
+    else if (tipe == "MERDEKA") {
+        if (validasiMerdeka(nomorKartu)) {
+            cout << "Nomor Kartu VALID." << endl;
+        } else {
+            cout << "Nomor Kartu TIDAK VALID." << endl;
+        }
+    } 
+
+}
