@@ -1,1 +1,25 @@
-//Kerjakan soal nomor 3 disini (Hapus komentar ini)
+#include <iostream>
+using namespace std;
+
+int main() {
+    string kode;
+    cout << "Masukkan kode transaksi (8 digit): ";
+    cin >> kode;
+
+    if (kode.length() != 8) {
+        cout << "Kode harus terdiri dari 8 digit.\n";
+        return 0;
+    }
+
+    string kodeHari = kode.substr(0, 2);
+    string kodePelanggan = kode.substr(2, 2);
+    string kodeBelanja = kode.substr(4, 4);
+
+    int belanja = 0;
+    for (int i = 0; i < 4; i++) {
+        belanja = belanja * 10 + (kodeBelanja[i] - '0');
+    }
+    int jumlahBelanja = belanja * 100000; 
+
+    string jenisHari, jenisPelanggan;
+    int poinPerUnit = 0;
