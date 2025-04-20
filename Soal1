@@ -71,3 +71,24 @@ int main() {
     } 
 
 }
+
+/*Algoritma
+
+1. Minta pengguna memasukkan nomor kartu digital.
+
+2. Identifikasi Tipe Kartu
+Jika nomor dimulai dengan "65" dan panjangnya 14 digit, kartu adalah NUSANTARA.
+Jika nomor dimulai dengan "77" atau "78" dan panjangnya 16 digit, kartu adalah GARUDA.
+Jika nomor dimulai dengan "91" dan panjangnya 15 digit, kartu adalah MERDEKA.
+Jika tidak memenuhi kriteria di atas, tampilkan "TIDAK DIKETAHUI" dan hentikan program.
+
+3. Validasi Nomor Kartu
+Untuk NUSANTARA, GARUDA, dan MERDEKA, gunakan algoritma Luhn Check:
+a. Kalikan setiap digit kedua dari kanan dengan 2. Jika hasilnya > 9, jumlahkan digitnya (misal: 16 → 1 + 6 = 7).
+b. Jumlahkan semua digit yang tidak dikalikan 2.
+c. Total semua hasil. Jika habis dibagi 10, nomor VALID; jika tidak, TIDAK VALID.
+
+4. Tampilkan Hasil
+Cetak tipe kartu dan status validasi (VALID/TIDAK VALID).
+
+5. Selesai */
